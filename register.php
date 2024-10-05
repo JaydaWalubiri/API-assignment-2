@@ -20,5 +20,9 @@ class User {
         }
         return null; // No errors
     }
-
+    public function saveToDatabase($pdo) {
+        $stmt = $pdo->prepare("INSERT INTO users (username, email, phone, password) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$this->username, $this->email, $this->phone, $this->password]);
+    }
+}
     ?>
