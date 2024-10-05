@@ -33,3 +33,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </tr>
                 <?php endforeach; ?>
             </tbody>
+            </table>
+    </div>
+</body>
+</html>
