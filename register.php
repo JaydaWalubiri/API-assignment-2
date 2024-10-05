@@ -11,6 +11,14 @@ class User {
         $this->phone = $phone;
         $this->password = password_hash($password, PASSWORD_BCRYPT); // Hash password
     }
-
+    public function validateInput() {
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            return "Invalid email format.";
+        }
+        if (!preg_match("/^[0-9]{10,15}$/", $this->phone)) {
+            return "Invalid phone number.";
+        }
+        return null; // No errors
+    }
 
     ?>
