@@ -25,4 +25,8 @@ class User {
         $stmt->execute([$this->username, $this->email, $this->phone, $this->password]);
     }
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user = new User($_POST['username'], $_POST['email'], $_POST['phone'], $_POST['password']);
+    $error = $user->validateInput();
     ?>
