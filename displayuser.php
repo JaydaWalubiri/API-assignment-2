@@ -14,3 +14,13 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Registered Users</title>
 </head>
 <body>
+<div class="container">
+        <h2 class="mt-5">Registered Users</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
