@@ -29,4 +29,15 @@ class User {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = new User($_POST['username'], $_POST['email'], $_POST['phone'], $_POST['password']);
     $error = $user->validateInput();
+
+    if ($error) {
+        echo "<p style='color:red;'>$error</p>";
+    } else {
+        // PDO connection
+        $pdo = new PDO('mysql:host=localhost;dbname=user_data', 'root', '');
+        $user->saveToDatabase($pdo);
+        echo "User registered successfully!";
+    }
+}
+
     ?>
