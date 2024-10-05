@@ -24,3 +24,12 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>Phone</th>
                 </tr>
             </thead>
+            <tbody>
+                <?php foreach ($users as $user): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($user['username']); ?></td>
+                    <td><?php echo htmlspecialchars($user['email']); ?></td>
+                    <td><?php echo htmlspecialchars($user['phone']); ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
